@@ -20,7 +20,7 @@ public class JwtProvider {
                 .claim("email", authentication.getName())
                 .signWith(key).compact();
     }
-    public String getTokenFromEmail(String jwt){
+    public String getEmailFromJwtToken(String jwt){
         jwt = jwt.substring(7);
         Claims claims = Jwts.parser().setSigningKey(key).build().parseClaimsJws(jwt).getBody();
 

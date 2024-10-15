@@ -5,10 +5,7 @@ import com.code.weirdo.CareerConnect.service.jobPost.JobPostService;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/job-post/")
@@ -17,12 +14,38 @@ public class JobPostController {
     private final JobPostService service;
 
     @PostMapping("/create")
-    public ResponseEntity<JobPostDto> create(@RequestBody JobPostDto dto){
-        try{
+    public ResponseEntity<JobPostDto> create(@RequestBody JobPostDto dto) {
+        try {
             JobPostDto createJobPost = service.createJobPost(dto);
             return new ResponseEntity<>(createJobPost, HttpStatus.CREATED);
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
     }
+
+    @PutMapping("/update-job-post/{id}")
+    public ResponseEntity<JobPostDto> updateJobPost(@RequestBody JobPostDto dto, @PathVariable Long id) {
+        try {
+            // Call the service method to update the job post
+            JobPostDto updatedJobPostDto = service.updateJobPost(dto, id);
+            return ResponseEntity.ok(updatedJobPostDto);
+        } catch (Exception e) {
+            // Handle exceptions (e.g., job post not found)
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(null);
+        }
+    }
+
+    @DeleteMapping("/delete-job-post/{id}")
+    public ResponseEntity<String> deleteJobPost(@PathVariable Long id) {
+        try {
+            // Call the service method to delete the job post
+            service.deleteJobPost(id);
+            return ResponseEntity.ok("Deleted Job Post"); // 204 No Content
+        } catch (Exception e) {
+            // Handle exceptions (e.g., job post not found)
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).build(); // 404 Not Found
+        }
+    }
+
 }
+

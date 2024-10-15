@@ -7,6 +7,11 @@ import com.code.weirdo.CareerConnect.repository.JobPostRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+import java.util.Optional;
+import java.util.function.Consumer;
+import java.util.stream.Collectors;
+
 @Service
 @AllArgsConstructor
 public class JobPostServiceImpl implements JobPostService{
@@ -20,4 +25,71 @@ public class JobPostServiceImpl implements JobPostService{
         JobPost createdPost = repository.save(jobPost);
         return JobPostConvertor.convertToDto(createdPost);
     }
+
+    @Override
+    public JobPostDto updateJobPost(JobPostDto dto, Long id) throws Exception {
+        Optional<JobPost> optionalJobPost = repository.findById(id);
+        if (optionalJobPost.isEmpty()) {
+            throw new Exception("Job post with Id: " + id + " not found");
+        }
+        JobPost existingJobPost = optionalJobPost.get();
+        // Save the updated JobPost back to the repository
+        repository.save(updateJobPostFields(dto, existingJobPost));
+
+        return JobPostConvertor.convertToDto(existingJobPost);
+    }
+
+    @Override
+    public JobPostDto getJobPostById(Long id) throws Exception {
+        Optional<JobPost> optionalJobPost = repository.findById(id);
+        if (optionalJobPost.isEmpty())
+            throw new Exception("Job post with this Id: " + id + " was not found");
+        JobPost jobPost = optionalJobPost.get();
+        return JobPostConvertor.convertToDto(jobPost);
+    }
+
+    @Override
+    public List<JobPostDto> getAllJobPosts() {
+        List<JobPost> data = repository.findAll();
+        return data.stream()
+                .map(JobPostConvertor::convertToDto) // Use method reference to convert each JobPost
+                .collect(Collectors.toList());
+    }
+
+    @Override
+    public String deleteJobPost(Long id) throws Exception {
+        Optional<JobPost> optionalJobPost = repository.findById(id);
+        if (optionalJobPost.isEmpty())
+            throw new Exception("Job post with this Id: " + id + " was not found");
+        JobPost jobPost = optionalJobPost.get();
+        repository.delete(jobPost);
+        return "Deleted";
+    }
+
+    private static JobPost updateJobPostFields(JobPostDto dto, JobPost existingJobPost) {
+        updateField(dto.getJobTitle(), existingJobPost::setJobTitle);
+        updateField(dto.getCompanyName(), existingJobPost::setCompanyName);
+        updateField(dto.getJobType(), existingJobPost::setJobType);
+        updateField(dto.getSalaryRange(), existingJobPost::setSalaryRange);
+        updateField(dto.getJobDescription(), existingJobPost::setJobDescription);
+        updateField(dto.getQualifications(), existingJobPost::setQualifications);
+        updateField(dto.getExperience(), existingJobPost::setExperience);
+        updateField(dto.getSkillsRequired(), existingJobPost::setSkillsRequired);
+        updateField(dto.getCompanyOverview(), existingJobPost::setCompanyOverview);
+        updateField(dto.getApplicationProcess(), existingJobPost::setApplicationProcess);
+        updateField(dto.getApplicationDeadLine(), existingJobPost::setApplicationDeadLine);
+        updateField(dto.getBenefits(), existingJobPost::setBenefits);
+        updateField(dto.getPostCreatedAt(), existingJobPost::setPostCreatedAt);
+        updateField(dto.getCompanyContactInfo(), existingJobPost::setCompanyContactInfo);
+        updateField(dto.getLocation(), existingJobPost::setLocation);
+
+        return existingJobPost;
+    }
+
+    private static <T> void updateField(T newValue, Consumer<T> setter) {
+        if (newValue != null && !((newValue instanceof String) && ((String) newValue).isEmpty())) {
+            setter.accept(newValue);
+        }
+    }
+
 }
