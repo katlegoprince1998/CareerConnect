@@ -7,6 +7,7 @@ import com.code.weirdo.CareerConnect.repository.JobPostRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import java.util.function.Consumer;
@@ -57,14 +58,27 @@ public class JobPostServiceImpl implements JobPostService{
     }
 
     @Override
-    public String deleteJobPost(Long id) throws Exception {
+    public void deleteJobPost(Long id) throws Exception {
         Optional<JobPost> optionalJobPost = repository.findById(id);
         if (optionalJobPost.isEmpty())
             throw new Exception("Job post with this Id: " + id + " was not found");
         JobPost jobPost = optionalJobPost.get();
         repository.delete(jobPost);
-        return "Deleted";
     }
+
+    @Override
+    public List<JobPostDto> filterJobs(String jobTitle, String companyName, String jobType, String salaryRange) {
+        try {
+            return repository.filterJobs(jobTitle, companyName, jobType, salaryRange)
+                    .stream()
+                    .map(JobPostConvertor::convertToDto)  // Convert each JobPost to JobPostDto using the converter
+                    .collect(Collectors.toList());       // Collect the results into a List
+        } catch (Exception e) {
+            return new ArrayList<>(); // Return an empty list in case of error
+        }
+    }
+
+
 
     private static JobPost updateJobPostFields(JobPostDto dto, JobPost existingJobPost) {
         updateField(dto.getJobTitle(), existingJobPost::setJobTitle);

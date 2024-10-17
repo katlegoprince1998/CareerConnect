@@ -9,6 +9,7 @@ public interface JobPostService {
     JobPostDto updateJobPost(JobPostDto dto, Long id) throws Exception;
     JobPostDto getJobPostById(Long id) throws Exception;
     List<JobPostDto> getAllJobPosts();
-    String deleteJobPost(Long id) throws Exception;
+    void deleteJobPost(Long id) throws Exception;
+    List<JobPostDto> filterJobs(String jobTitle,String companyName, String jobType, String salaryRange);
 
 }

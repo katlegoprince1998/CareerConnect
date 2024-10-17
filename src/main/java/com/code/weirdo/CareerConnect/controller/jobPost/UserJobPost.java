@@ -5,10 +5,7 @@ import com.code.weirdo.CareerConnect.service.jobPost.JobPostService;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -41,5 +38,27 @@ public class UserJobPost {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
                     .body(null);
         }
+    }
+
+    @GetMapping("/filter-job-post")
+    public ResponseEntity<List<JobPostDto>> filterJobsAsync(
+            @RequestParam(required = false) String jobTitle,
+            @RequestParam(required = false) String companyName,
+            @RequestParam(required = false) String jobType,
+            @RequestParam(required = false) String salaryRange) {
+
+         try{
+             List<JobPostDto> jobPosts = service.filterJobs(jobTitle, companyName, jobType, salaryRange);
+
+             if (jobPosts.isEmpty()) {
+                 // Optionally return a 204 No Content if no job posts are found
+                 return ResponseEntity.noContent().build();
+             }
+             return ResponseEntity.ok(jobPosts); // 200 OK
+         }catch (Exception e) {
+             // Return a 500 Internal Server Error for unexpected errors
+             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
+                     .body(null);
+         }
     }
 }
