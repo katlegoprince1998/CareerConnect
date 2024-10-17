@@ -8,8 +8,9 @@ import lombok.Setter;
 @Setter
 @Embeddable
 public class Location {
-    private String city;
+    private String country;
     private String province;
+    private String city;
     private String address;
     private String streetName;
     private String postalCode;

@@ -19,6 +19,8 @@
 - Company profiles showcasing **mission, values,** and **culture**.
 - Job listings associated with **each company**.
 
+### 5. Job Application 
+- **Apply for jobs** using existing resume or manually
 ---
 
 ## 🚀 Additional Features
