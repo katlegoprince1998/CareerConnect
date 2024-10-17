@@ -82,20 +82,18 @@ public class JobPostServiceImpl implements JobPostService{
 
     private static JobPost updateJobPostFields(JobPostDto dto, JobPost existingJobPost) {
         updateField(dto.getJobTitle(), existingJobPost::setJobTitle);
-        updateField(dto.getCompanyName(), existingJobPost::setCompanyName);
         updateField(dto.getJobType(), existingJobPost::setJobType);
         updateField(dto.getSalaryRange(), existingJobPost::setSalaryRange);
         updateField(dto.getJobDescription(), existingJobPost::setJobDescription);
         updateField(dto.getQualifications(), existingJobPost::setQualifications);
         updateField(dto.getExperience(), existingJobPost::setExperience);
         updateField(dto.getSkillsRequired(), existingJobPost::setSkillsRequired);
-        updateField(dto.getCompanyOverview(), existingJobPost::setCompanyOverview);
         updateField(dto.getApplicationProcess(), existingJobPost::setApplicationProcess);
         updateField(dto.getApplicationDeadLine(), existingJobPost::setApplicationDeadLine);
         updateField(dto.getBenefits(), existingJobPost::setBenefits);
         updateField(dto.getPostCreatedAt(), existingJobPost::setPostCreatedAt);
-        updateField(dto.getCompanyContactInfo(), existingJobPost::setCompanyContactInfo);
-        updateField(dto.getLocation(), existingJobPost::setLocation);
+
+
 
         return existingJobPost;
     }

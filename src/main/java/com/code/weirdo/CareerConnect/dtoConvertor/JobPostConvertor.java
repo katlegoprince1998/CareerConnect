@@ -13,17 +13,14 @@ public class JobPostConvertor {
                 .jobDescription(jobPost.getJobDescription())
                 .applicationProcess(jobPost.getApplicationProcess())
                 .benefits(jobPost.getBenefits())
-                .companyContactInfo(jobPost.getCompanyContactInfo())
-                .companyName(jobPost.getCompanyName())
-                .companyOverview(jobPost.getCompanyOverview())
                 .experience(jobPost.getExperience())
                 .jobTitle(jobPost.getJobTitle())
                 .jobType(jobPost.getJobType())
                 .skillsRequired(jobPost.getSkillsRequired())
                 .salaryRange(jobPost.getSalaryRange())
-                .location(jobPost.getLocation())
                 .postCreatedAt(jobPost.getPostCreatedAt())
                 .qualifications(jobPost.getQualifications())
+                .company(jobPost.getCompanyInformation())
                 .build();
     }
 
@@ -34,17 +31,14 @@ public class JobPostConvertor {
                 .jobDescription(dto.getJobDescription())
                 .applicationProcess(dto.getApplicationProcess())
                 .benefits(dto.getBenefits())
-                .companyContactInfo(dto.getCompanyContactInfo())
-                .companyName(dto.getCompanyName())
-                .companyOverview(dto.getCompanyOverview())
                 .experience(dto.getExperience())
                 .jobType(dto.getJobType())
                 .jobTitle(dto.getJobTitle())
                 .skillsRequired(dto.getSkillsRequired())
                 .salaryRange(dto.getSalaryRange())
-                .location(dto.getLocation())
                 .postCreatedAt(dto.getPostCreatedAt())
                 .qualifications(dto.getQualifications())
+                .companyInformation(dto.getCompany())
                 .build();
     }
 }

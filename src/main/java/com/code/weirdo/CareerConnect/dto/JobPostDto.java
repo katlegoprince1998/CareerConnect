@@ -1,7 +1,6 @@
 package com.code.weirdo.CareerConnect.dto;
 
-import com.code.weirdo.CareerConnect.models.data.CompanyContactInfo;
-import com.code.weirdo.CareerConnect.models.data.Location;
+import com.code.weirdo.CareerConnect.models.Company;
 import lombok.*;
 
 import java.time.LocalDate;
@@ -12,7 +11,6 @@ import java.time.LocalDate;
 @Builder
 public class JobPostDto {
     private String jobTitle;
-    private String companyName;
     private String jobType;
     private String salaryRange;
     private String jobDescription;
@@ -24,6 +22,5 @@ public class JobPostDto {
     private LocalDate applicationDeadLine;
     private String benefits;
     private LocalDate postCreatedAt;
-    private CompanyContactInfo companyContactInfo;
-    private Location location;
+    private Company company;
 }
