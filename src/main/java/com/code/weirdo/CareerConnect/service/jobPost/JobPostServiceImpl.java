@@ -1,6 +1,8 @@
 package com.code.weirdo.CareerConnect.service.jobPost;
 
+import com.code.weirdo.CareerConnect.dto.CompanyDto;
 import com.code.weirdo.CareerConnect.dto.JobPostDto;
+import com.code.weirdo.CareerConnect.dtoConvertor.CompanyConvertor;
 import com.code.weirdo.CareerConnect.dtoConvertor.JobPostConvertor;
 import com.code.weirdo.CareerConnect.models.JobPost;
 import com.code.weirdo.CareerConnect.repository.JobPostRepository;
@@ -19,13 +21,26 @@ public class JobPostServiceImpl implements JobPostService{
     private final JobPostRepository repository;
 
     @Override
-    public JobPostDto createJobPost(JobPostDto dto) throws Exception {
+    public JobPostDto createJobPost(JobPostDto dto, CompanyDto companyDto) throws Exception {
         if (dto == null)
-            throw new Exception("Object is empty");
+            throw new Exception("JobPostDto is empty");
+
+        if (companyDto == null)
+            throw new Exception("CompanyDto is empty");
+
+        // Convert DTO to entity
         JobPost jobPost = JobPostConvertor.convertToEntity(dto);
+
+        // Associate the job post with the company
+        jobPost.setCompany(CompanyConvertor.toEntity(companyDto));
+
+        // Save the job post
         JobPost createdPost = repository.save(jobPost);
+
+        // Convert saved entity back to DTO and return
         return JobPostConvertor.convertToDto(createdPost);
     }
+
 
     @Override
     public JobPostDto updateJobPost(JobPostDto dto, Long id) throws Exception {
@@ -67,9 +82,9 @@ public class JobPostServiceImpl implements JobPostService{
     }
 
     @Override
-    public List<JobPostDto> filterJobs(String jobTitle, String companyName, String jobType, String salaryRange) {
+    public List<JobPostDto> filterJobs(String jobTitle, String jobType, String salaryRange) {
         try {
-            return repository.filterJobs(jobTitle, companyName, jobType, salaryRange)
+            return repository.filterJobs(jobTitle, jobType, salaryRange)
                     .stream()
                     .map(JobPostConvertor::convertToDto)  // Convert each JobPost to JobPostDto using the converter
                     .collect(Collectors.toList());       // Collect the results into a List

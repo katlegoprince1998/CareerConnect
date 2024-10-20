@@ -20,7 +20,7 @@ public class JobPostConvertor {
                 .salaryRange(jobPost.getSalaryRange())
                 .postCreatedAt(jobPost.getPostCreatedAt())
                 .qualifications(jobPost.getQualifications())
-                .company(jobPost.getCompanyInformation())
+                .company(jobPost.getCompany())
                 .build();
     }
 
@@ -38,7 +38,7 @@ public class JobPostConvertor {
                 .salaryRange(dto.getSalaryRange())
                 .postCreatedAt(dto.getPostCreatedAt())
                 .qualifications(dto.getQualifications())
-                .companyInformation(dto.getCompany())
+                .company(dto.getCompany())
                 .build();
     }
 }

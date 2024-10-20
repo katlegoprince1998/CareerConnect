@@ -43,12 +43,11 @@ public class UserJobPost {
     @GetMapping("/filter-job-post")
     public ResponseEntity<List<JobPostDto>> filterJobsAsync(
             @RequestParam(required = false) String jobTitle,
-            @RequestParam(required = false) String companyName,
             @RequestParam(required = false) String jobType,
             @RequestParam(required = false) String salaryRange) {
 
          try{
-             List<JobPostDto> jobPosts = service.filterJobs(jobTitle, companyName, jobType, salaryRange);
+             List<JobPostDto> jobPosts = service.filterJobs(jobTitle, jobType, salaryRange);
 
              if (jobPosts.isEmpty()) {
                  // Optionally return a 204 No Content if no job posts are found

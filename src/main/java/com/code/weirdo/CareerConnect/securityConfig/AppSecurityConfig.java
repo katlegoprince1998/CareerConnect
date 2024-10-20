@@ -24,7 +24,7 @@ public class AppSecurityConfig {
         //let's tell the app not to manage sessions, I will manage it
         http.sessionManagement(management -> management.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .authorizeHttpRequests(
-                        authorize -> authorize.requestMatchers("/api/***").authenticated()
+                        authorize -> authorize.requestMatchers("/api/**").authenticated()
                                 .anyRequest()
                                 .permitAll()
                 ).addFilterBefore(new JwtValidator(), BasicAuthenticationFilter.class)

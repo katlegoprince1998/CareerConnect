@@ -26,7 +26,7 @@ public class Company {
     private Location location;
     @Embedded
     private CompanyContactInfo contactInfo;
-    @OneToMany(mappedBy = "CompanyInformation", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(mappedBy = "company", cascade = CascadeType.ALL, orphanRemoval = true)
     private Set<JobPost> jobPosts;
 
 }

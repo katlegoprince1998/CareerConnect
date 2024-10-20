@@ -11,12 +11,10 @@ import java.util.List;
 public interface JobPostRepository extends JpaRepository<JobPost, Long> {
     @Query(
             "SELECT j FROM JobPost j WHERE (:jobTitle IS NULL or j.jobTitle = :jobTitle) " +
-                    "AND (:companyName IS NULL OR j.companyName = :companyName) " +
                     "AND (:jobType IS NULL OR :jobType = j.jobType) " +
                     "AND (:salaryRange IS NULL OR j.salaryRange = :salaryRange)"
     )
     List<JobPost> filterJobs(@Param("jobTitle") String jobTitle,
-                             @Param("companyName") String companyName,
                              @Param("jobType") String jobType,
                              @Param("salaryRange") String salaryRange);
 
