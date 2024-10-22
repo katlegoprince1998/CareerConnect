@@ -22,8 +22,8 @@ public class CompanyController {
 
     private final Logger logger = LoggerFactory.getLogger(CompanyController.class);
 
-    @GetMapping("/find-company-by-name/{name}")
-    public ResponseEntity<CompanyDto> findByName(@PathVariable String name) throws BadRequestException {
+    @GetMapping("/find-company-by-name")
+    public ResponseEntity<CompanyDto> findByName(@RequestParam String name) throws BadRequestException {
         if (name == null || name.isEmpty()) {
             throw new BadRequestException("Company name is required");
         }
@@ -36,7 +36,7 @@ public class CompanyController {
         }
     }
 
-    @GetMapping("/find-company-by-name/{industry}")
+    @GetMapping("/find-company-by-industry/{industry}")
     public ResponseEntity<List<CompanyDto>> findByIndustry(@PathVariable String industry) throws Exception {
         if (industry == null || industry.isEmpty()) {
             throw new BadRequestException("Industry field is required");

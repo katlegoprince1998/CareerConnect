@@ -25,7 +25,7 @@ public class JobPost {
     private LocalDate applicationDeadLine;
     private String benefits;
     private LocalDate postCreatedAt;
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne
     @JoinColumn(name = "companyId")
     private Company company;
 

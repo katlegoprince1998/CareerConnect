@@ -4,6 +4,7 @@ import com.code.weirdo.CareerConnect.dto.CompanyDto;
 import com.code.weirdo.CareerConnect.dto.JobPostDto;
 import com.code.weirdo.CareerConnect.dtoConvertor.CompanyConvertor;
 import com.code.weirdo.CareerConnect.dtoConvertor.JobPostConvertor;
+import com.code.weirdo.CareerConnect.models.Company;
 import com.code.weirdo.CareerConnect.models.JobPost;
 import com.code.weirdo.CareerConnect.repository.JobPostRepository;
 import lombok.AllArgsConstructor;
@@ -21,23 +22,24 @@ public class JobPostServiceImpl implements JobPostService{
     private final JobPostRepository repository;
 
     @Override
-    public JobPostDto createJobPost(JobPostDto dto, CompanyDto companyDto) throws Exception {
-        if (dto == null)
+    public JobPostDto createJobPost(JobPostDto dto, Company company) throws Exception {
+        if (dto == null) {
             throw new Exception("JobPostDto is empty");
+        }
+        if (company == null) {
+            throw new Exception("Company is empty");
+        }
 
-        if (companyDto == null)
-            throw new Exception("CompanyDto is empty");
-
-        // Convert DTO to entity
+        // Convert DTO to JobPost entity
         JobPost jobPost = JobPostConvertor.convertToEntity(dto);
 
-        // Associate the job post with the company
-        jobPost.setCompany(CompanyConvertor.toEntity(companyDto));
+        // Set the company entity in the job post
+        jobPost.setCompany(company);
 
         // Save the job post
         JobPost createdPost = repository.save(jobPost);
 
-        // Convert saved entity back to DTO and return
+        // Convert the saved entity back to DTO and return
         return JobPostConvertor.convertToDto(createdPost);
     }
 

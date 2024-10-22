@@ -5,7 +5,8 @@ import com.code.weirdo.CareerConnect.models.data.Location;
 import jakarta.persistence.*;
 import lombok.*;
 
-import java.util.Set;
+import java.util.List;
+
 
 @Entity
 @AllArgsConstructor
@@ -27,6 +28,6 @@ public class Company {
     @Embedded
     private CompanyContactInfo contactInfo;
     @OneToMany(mappedBy = "company", cascade = CascadeType.ALL, orphanRemoval = true)
-    private Set<JobPost> jobPosts;
+    private List<JobPost> jobPosts;
 
 }
