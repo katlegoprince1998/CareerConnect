@@ -1,12 +1,10 @@
 package com.absolute.code.weirdo.user_servce.service.auth.signin;
 
-import com.absolute.code.weirdo.user_servce.exceptions.FailedToCreateAccountException;
 import com.absolute.code.weirdo.user_servce.exceptions.FailedToLoginException;
 import com.absolute.code.weirdo.user_servce.repository.UserRepository;
-import com.absolute.code.weirdo.user_servce.request.SignUpRequest;
+import com.absolute.code.weirdo.user_servce.request.SignInRequest;
 import com.absolute.code.weirdo.user_servce.response.AuthResponse;
 import com.absolute.code.weirdo.user_servce.securityConfi.jwt.JwtProvider;
-import com.absolute.code.weirdo.user_servce.service.auth.signup.SignUpService;
 import com.absolute.code.weirdo.user_servce.service.userConfig.CustomUserServiceImpl;
 import lombok.AllArgsConstructor;
 import org.springframework.security.authentication.BadCredentialsException;
@@ -19,24 +17,25 @@ import org.springframework.stereotype.Service;
 
 @Service
 @AllArgsConstructor
-public class LogInServiceImpl implements SignUpService {
+public class LogInServiceImpl implements SignInService {
     private final UserRepository repository;
     private final PasswordEncoder passwordEncoder;
     private final CustomUserServiceImpl customUserService;
-    @Override
-    public AuthResponse createAccount(SignUpRequest request) throws FailedToCreateAccountException {
-        try{
-           if (request != null){
-               Authentication authentication = authenticate(request.getEmail(), request.getPassword());
-               SecurityContextHolder.getContext().setAuthentication(authentication);
 
-               String token = JwtProvider.generateToken(authentication);
-               return AuthResponse.builder()
-                       .status(true)
-                       .message("User logged in Successfully")
-                       .jwt(token)
-                       .build();
-           }
+    @Override
+    public AuthResponse logIn(SignInRequest request) throws FailedToLoginException {
+        try{
+            if (request != null){
+                Authentication authentication = authenticate(request.getEmail(), request.getPassword());
+                SecurityContextHolder.getContext().setAuthentication(authentication);
+
+                String token = JwtProvider.generateToken(authentication);
+                return AuthResponse.builder()
+                        .status(true)
+                        .message("User logged in Successfully")
+                        .jwt(token)
+                        .build();
+            }
         } catch (Exception e) {
             throw new FailedToLoginException("Failed to log user in");
         }
@@ -54,5 +53,4 @@ public class LogInServiceImpl implements SignUpService {
         return new UsernamePasswordAuthenticationToken(userDetails, null, userDetails.getAuthorities());
 
     }
-
 }
