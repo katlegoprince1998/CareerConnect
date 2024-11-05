@@ -19,19 +19,25 @@ import java.util.Collections;
 @Configuration
 public class EndPointConfig {
     @Bean
-    SecurityFilterChain filterChain(HttpSecurity httpFilterChain) throws Exception {
-        httpFilterChain.sessionManagement(management -> management.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
-                .authorizeHttpRequests(Authorize -> Authorize.requestMatchers("/api/**")
-                        .authenticated().anyRequest().permitAll())
+    SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
+        http.sessionManagement(management -> management.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
+                .authorizeHttpRequests(authorize -> authorize
+                        // Permit all requests to public endpoints like sign-up or login
+                        .requestMatchers("/auth/sign-up", "/auth/sign-in").permitAll()
+                        // Require authentication for all /api/** requests
+                        .requestMatchers("/api/**").authenticated()
+                        // Allow other requests without authentication
+                        .anyRequest().permitAll()
+                )
                 .addFilterBefore(new JwtValidator(), BasicAuthenticationFilter.class)
                 .csrf(AbstractHttpConfigurer::disable)
                 .cors(cors -> cors.configurationSource(corsConfigurationSource()))
                 .httpBasic(Customizer.withDefaults())
                 .formLogin(Customizer.withDefaults());
 
-           return httpFilterChain.build();
-
+        return http.build();
     }
+
 
     private CorsConfigurationSource corsConfigurationSource() {
         return request -> {
