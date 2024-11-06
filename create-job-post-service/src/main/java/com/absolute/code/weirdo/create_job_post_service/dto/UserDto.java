@@ -1,13 +1,13 @@
-package com.absolute.code.weirdo.user_servce.response;
+package com.absolute.code.weirdo.create_job_post_service.dto;
 
 import lombok.*;
 
 @AllArgsConstructor
 @NoArgsConstructor
-@Builder
 @Setter
 @Getter
-public class UserProfileResponse {
+@Builder
+public class UserDto {
     private Long userId;
     private String fullName;
     private String email;

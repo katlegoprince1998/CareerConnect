@@ -32,8 +32,10 @@ public class ProfileServiceImpl implements ProfileService{
 
         return Optional.ofNullable(repository.findByEmail(email))
                 .map(user -> UserProfileResponse.builder()
+                        .userId(user.getUserId())
                         .email(user.getEmail())
                         .fullName(user.getFullName())
+                        .role(user.getRole())
                         .build())
                 .orElse(null);
     }

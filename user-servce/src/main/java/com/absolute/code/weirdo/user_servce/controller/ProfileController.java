@@ -4,7 +4,6 @@ import com.absolute.code.weirdo.user_servce.request.UserProfileRequest;
 import com.absolute.code.weirdo.user_servce.response.UserProfileResponse;
 import com.absolute.code.weirdo.user_servce.service.profile.ProfileService;
 import lombok.AllArgsConstructor;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
