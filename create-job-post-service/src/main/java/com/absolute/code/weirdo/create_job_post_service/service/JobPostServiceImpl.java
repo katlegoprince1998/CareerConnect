@@ -9,8 +9,6 @@ import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 import java.time.LocalDate;
 
-import org.springframework.util.StringUtils;
-
 @Service
 @AllArgsConstructor
 public class JobPostServiceImpl implements JobPostService {

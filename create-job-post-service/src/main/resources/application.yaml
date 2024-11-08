@@ -3,7 +3,7 @@ server:
 
 spring:
   application:
-    name: create-job-post-service
+    name: CREATE-JOB-POST-SERVICE
   datasource:
     url: jdbc:postgresql://localhost:5432/career-connect-create-job-post-service
     username: postgres
@@ -14,3 +14,12 @@ spring:
     properties:
       hibernate:
         dialect: org.hibernate.dialect.PostgreSQLDialect
+
+eureka:
+  instance:
+    prefer-ip-address: false
+  client:
+    fetch-registry: true
+    register-with-eureka: true
+  serverUrl:
+    defaultZone: http://localhost:8761/eureka/

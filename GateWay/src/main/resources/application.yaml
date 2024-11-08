@@ -1,0 +1,38 @@
+server:
+  port: 5000
+
+spring:
+  application:
+    name: GATEWAY-SERVICE
+
+  cloud:
+    gateway:
+      routes:
+        - id: USER-SERVICE
+          uri: lb://USER-SERVICE
+          predicates:
+            - Path=/auth/sign-up
+            - Path=/auth/sign-in
+            - Path=/api/v1/**
+            - Path=/**
+        - id: CREATE-JOB-POST-SERVICE
+          uri: lb://CREATE-JOB-POST-SERVICE
+          predicates:
+            - Path=/api/v1/job-post/**
+      default-filters:
+        - DedupeResponseHeader=Access-Control-Allow-Credentials, Access-Control-Allow-Origin
+      globalcors:
+        cors-configuration:
+          '[/**]':
+            allowOrigins: "*"
+            allowMethods: "*"
+            allowHeaders: "*"
+
+eureka:
+  instance:
+    prefer-ip-address: false
+  client:
+    fetch-registry: true
+    register-with-eureka: true
+  serverUrl:
+    defaultZone: http://localhost:8761/eureka/
