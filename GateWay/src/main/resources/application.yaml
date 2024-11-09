@@ -7,18 +7,19 @@ spring:
 
   cloud:
     gateway:
+      discovery:
+        locator:
+          enabled: true
       routes:
         - id: USER-SERVICE
           uri: lb://USER-SERVICE
           predicates:
-            - Path=/auth/sign-up
-            - Path=/auth/sign-in
-            - Path=/api/v1/**
-            - Path=/**
-        - id: CREATE-JOB-POST-SERVICE
-          uri: lb://CREATE-JOB-POST-SERVICE
+            - Path=/auth/**
+        - id: JOB-POST-SERVICE
+          uri: lb://JOB-POST-SERVICE  # Ensure this matches the Eureka registration name
           predicates:
             - Path=/api/v1/job-post/**
+
       default-filters:
         - DedupeResponseHeader=Access-Control-Allow-Credentials, Access-Control-Allow-Origin
       globalcors:
@@ -29,10 +30,10 @@ spring:
             allowHeaders: "*"
 
 eureka:
-  instance:
-    prefer-ip-address: false
   client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
     fetch-registry: true
     register-with-eureka: true
-  serverUrl:
-    defaultZone: http://localhost:8761/eureka/
+  instance:
+    prefer-ip-address: true
