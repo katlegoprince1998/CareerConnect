@@ -14,6 +14,6 @@ public interface JobPostService {
     GetJobPostResponse getJobPost(Long id) throws FailedToGetJobPostException;
     List<GetJobPostResponse> getAllJobPosts() throws FailedToGetJobPostException;
     void deleteJobPost(Long id, String userRole) throws FailedToGetJobPostException;
-    GetJobPostResponse updateJobPost(Long id, UpdateJobPostRequest request) throws FailedToGetJobPostException;
+    GetJobPostResponse updateJobPost(Long id, UpdateJobPostRequest request, String userRole) throws FailedToGetJobPostException;
 
 }

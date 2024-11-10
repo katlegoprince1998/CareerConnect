@@ -22,5 +22,5 @@ public class GetJobPostResponse {
     private String applicationDeadline;
     private String benefits;
     private LocalDate postCreatedAt;
-    private UserDto userDto;
+    private Long userId;
 }
