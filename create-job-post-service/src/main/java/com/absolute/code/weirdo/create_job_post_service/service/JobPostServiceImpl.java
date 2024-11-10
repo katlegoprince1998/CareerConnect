@@ -12,6 +12,8 @@ import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 import java.time.LocalDate;
 import java.util.List;
+import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Service
 @AllArgsConstructor
@@ -34,23 +36,78 @@ public class JobPostServiceImpl implements JobPostService {
 
     @Override
     public GetJobPostResponse getJobPost(Long id) throws FailedToGetJobPostException {
-        return null;
+        JobPost jobPost = repository.findById(id)
+                .orElseThrow(() -> new FailedToGetJobPostException("Failed to get Job by id " + id));
+
+        return convertToResponse(jobPost);
     }
+
+    // Convert JobPost to GetJobPostResponse
+    private GetJobPostResponse convertToResponse(JobPost jobPost) {
+        return GetJobPostResponse.builder()
+                .id(jobPost.getId())
+                .jobTitle(jobPost.getJobTitle())
+                .jobType(jobPost.getJobType())
+                .salaryRange(jobPost.getSalaryRange())
+                .jobDescription(jobPost.getJobDescription())
+                .qualifications(jobPost.getQualifications())
+                .experience(jobPost.getExperience())
+                .skillsRequired(jobPost.getSkillsRequired())
+                .applicationProcess(jobPost.getApplicationProcess())
+                .applicationDeadline(jobPost.getApplicationDeadline())
+                .benefits(jobPost.getBenefits())
+                .postCreatedAt(jobPost.getPostCreatedAt())
+                .userId(jobPost.getUserid()) // Assumes a method to convert user entity to UserDto
+                .build();
+    }
+
 
     @Override
     public List<GetJobPostResponse> getAllJobPosts() throws FailedToGetJobPostException {
-        return List.of();
+        List<JobPost> jobPosts = repository.findAll();
+        return jobPosts.stream()
+                .map(this::convertToResponse)
+                .collect(Collectors.toList());
     }
 
     @Override
     public void deleteJobPost(Long id, String userRole) throws FailedToGetJobPostException {
+        if (!"ADMIN".equals(userRole)) {
+            throw new FailedToGetJobPostException("Only ADMIN can delete job posts");
+        }
 
+        JobPost jobPost = repository.findById(id)
+                .orElseThrow(() -> new FailedToGetJobPostException("Job post not found with id " + id));
+
+        repository.delete(jobPost);
     }
 
     @Override
-    public GetJobPostResponse updateJobPost(Long id, UpdateJobPostRequest request) throws FailedToGetJobPostException {
-        return null;
+    public GetJobPostResponse updateJobPost(Long id, UpdateJobPostRequest request, String userRole) throws FailedToGetJobPostException {
+        if (!"ADMIN".equals(userRole)) {
+            throw new FailedToGetJobPostException("Only ADMIN can update job posts");
+        }
+
+        JobPost jobPost = repository.findById(id)
+                .orElseThrow(() -> new FailedToGetJobPostException("Job post not found with id " + id));
+
+        // Update fields as per the request
+        jobPost.setJobTitle(request.getJobTitle());
+        jobPost.setJobType(request.getJobType());
+        jobPost.setSalaryRange(request.getSalaryRange());
+        jobPost.setJobDescription(request.getJobDescription());
+        jobPost.setQualifications(request.getQualifications());
+        jobPost.setExperience(request.getExperience());
+        jobPost.setSkillsRequired(request.getSkillsRequired());
+        jobPost.setApplicationProcess(request.getApplicationProcess());
+        jobPost.setApplicationDeadline(request.getApplicationDeadline());
+        jobPost.setBenefits(request.getBenefits());
+
+        repository.save(jobPost);
+
+        return convertToResponse(jobPost);
     }
+
 
     private void validateRequest(JobPostRequest request, String userRole) throws FailedToCreateJobPostException {
         if (request == null) {
