@@ -7,7 +7,7 @@ import lombok.*;
 @Setter
 @Getter
 @Builder
-public class JobPostResponse {
+public class CreateJobPostResponse {
     private Long jobId;
     private Long userId;
     private String jobTitle;
