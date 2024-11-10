@@ -1,13 +1,17 @@
 package com.absolute.code.weirdo.create_job_post_service.service;
 
 import com.absolute.code.weirdo.create_job_post_service.exceptions.FailedToCreateJobPostException;
+import com.absolute.code.weirdo.create_job_post_service.exceptions.FailedToGetJobPostException;
 import com.absolute.code.weirdo.create_job_post_service.model.JobPost;
 import com.absolute.code.weirdo.create_job_post_service.repository.JobPostRepository;
 import com.absolute.code.weirdo.create_job_post_service.request.JobPostRequest;
-import com.absolute.code.weirdo.create_job_post_service.response.JobPostResponse;
+import com.absolute.code.weirdo.create_job_post_service.request.UpdateJobPostRequest;
+import com.absolute.code.weirdo.create_job_post_service.response.CreateJobPostResponse;
+import com.absolute.code.weirdo.create_job_post_service.response.GetJobPostResponse;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 import java.time.LocalDate;
+import java.util.List;
 
 @Service
 @AllArgsConstructor
@@ -15,7 +19,7 @@ public class JobPostServiceImpl implements JobPostService {
     private final JobPostRepository repository;
 
     @Override
-    public JobPostResponse createJobPost(JobPostRequest request, String userRole, Long userId) throws FailedToCreateJobPostException {
+    public CreateJobPostResponse createJobPost(JobPostRequest request, String userRole, Long userId) throws FailedToCreateJobPostException {
         validateRequest(request, userRole);
 
         JobPost jobPost = buildJobPost(request, userId);
@@ -26,6 +30,26 @@ public class JobPostServiceImpl implements JobPostService {
         } catch (Exception e) {
             throw new FailedToCreateJobPostException("Failed to create job post: " + e.getMessage());
         }
+    }
+
+    @Override
+    public GetJobPostResponse getJobPost(Long id) throws FailedToGetJobPostException {
+        return null;
+    }
+
+    @Override
+    public List<GetJobPostResponse> getAllJobPosts() throws FailedToGetJobPostException {
+        return List.of();
+    }
+
+    @Override
+    public void deleteJobPost(Long id, String userRole) throws FailedToGetJobPostException {
+
+    }
+
+    @Override
+    public GetJobPostResponse updateJobPost(Long id, UpdateJobPostRequest request) throws FailedToGetJobPostException {
+        return null;
     }
 
     private void validateRequest(JobPostRequest request, String userRole) throws FailedToCreateJobPostException {
@@ -56,8 +80,8 @@ public class JobPostServiceImpl implements JobPostService {
                 .build();
     }
 
-    private JobPostResponse buildResponse(JobPost savedJobPost) {
-        return JobPostResponse.builder()
+    private CreateJobPostResponse buildResponse(JobPost savedJobPost) {
+        return CreateJobPostResponse.builder()
                 .message("Job Post Created Successfully")
                 .jobTitle(savedJobPost.getJobTitle())
                 .jobId(savedJobPost.getId())
