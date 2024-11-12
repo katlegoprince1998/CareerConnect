@@ -1,0 +1,281 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="9b0a4f99-6d81-436e-87c9-141d076d2790" name="Changes" comment="Implemented endpoints to get job posts, delete, and update" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Enum" />
+        <option value="Interface" />
+        <option value="Exception" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="Master" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="jar://$MAVEN_REPOSITORY$/io/jsonwebtoken/jjwt-api/0.12.6/jjwt-api-0.12.6-sources.jar!/io/jsonwebtoken/JwtParser.java" root0="FORCE_HIGHLIGHTING" />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="mavenHomeTypeForPersistence" value="WRAPPER" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 8
+}</component>
+  <component name="ProjectId" id="2nLXteB5YelUus25IKI1ty3vp3A" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.CareerConnectApplication.executor": "Run",
+    "Application.CreateJobPostServiceApplication.executor": "Run",
+    "Application.DiscoveryServerApplication.executor": "Run",
+    "Application.GateWayApplication.executor": "Run",
+    "Application.UserServceApplication.executor": "Run",
+    "Maven.create-job-post-service [clean,test].executor": "Run",
+    "Maven.create-job-post-service [clean].executor": "Run",
+    "Maven.user-servce [clean,install].executor": "Run",
+    "Maven.user-servce [clean].executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SONARLINT_PRECOMMIT_ANALYSIS": "true",
+    "git-widget-placeholder": "Dev",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/princ/OneDrive/Desktop/Projects/CareerConnect/user-reviews-service/pom.xml",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0",
+    "settings.editor.selected.configurable": "MavenSettings"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="com.absolute.code.weirdo.user_servce.exceptions" />
+    </key>
+  </component>
+  <component name="RunAnythingCache">
+    <option name="myCommands">
+      <command value="mvn clean" />
+    </option>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="9b0a4f99-6d81-436e-87c9-141d076d2790" name="Changes" comment="" />
+      <created>1728753547625</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1728753547625</updated>
+    </task>
+    <task id="LOCAL-00001" summary="Spring Security Login nad Logout">
+      <option name="closed" value="true" />
+      <created>1728769068698</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1728769068698</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Create Job Post">
+      <option name="closed" value="true" />
+      <created>1728801333828</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1728801333828</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Added 6 end points">
+      <option name="closed" value="true" />
+      <created>1728963487950</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1728963487950</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Added an endpoint to filter data">
+      <option name="closed" value="true" />
+      <created>1729132017979</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1729132017979</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Added Company Entity">
+      <option name="closed" value="true" />
+      <created>1729135193706</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1729135193706</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Added few end points for company">
+      <option name="closed" value="true" />
+      <created>1729141276043</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1729141276043</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Added few end points for company">
+      <option name="closed" value="true" />
+      <created>1729431024098</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1729431024098</updated>
+    </task>
+    <task id="LOCAL-00008" summary="Fixing duplicate issues">
+      <option name="closed" value="true" />
+      <created>1729562845315</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1729562845315</updated>
+    </task>
+    <task id="LOCAL-00009" summary="re-building the project to microservices">
+      <option name="closed" value="true" />
+      <created>1730169538022</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1730169538022</updated>
+    </task>
+    <task id="LOCAL-00010" summary="Spring Security">
+      <option name="closed" value="true" />
+      <created>1730344640847</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1730344640847</updated>
+    </task>
+    <task id="LOCAL-00011" summary="Spring Security">
+      <option name="closed" value="true" />
+      <created>1730685800144</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1730685800145</updated>
+    </task>
+    <task id="LOCAL-00012" summary="Spring Security">
+      <option name="closed" value="true" />
+      <created>1730775489714</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1730775489714</updated>
+    </task>
+    <task id="LOCAL-00013" summary="Spring Security">
+      <option name="closed" value="true" />
+      <created>1730775829827</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1730775829827</updated>
+    </task>
+    <task id="LOCAL-00014" summary="get user by jwt token">
+      <option name="closed" value="true" />
+      <created>1730859862805</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1730859862805</updated>
+    </task>
+    <task id="LOCAL-00015" summary="Create Job Post Service">
+      <option name="closed" value="true" />
+      <created>1730920298956</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1730920298956</updated>
+    </task>
+    <task id="LOCAL-00016" summary="Config server and spring cloud">
+      <option name="closed" value="true" />
+      <created>1731038350668</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1731038350668</updated>
+    </task>
+    <task id="LOCAL-00017" summary="Config server and spring cloud">
+      <option name="closed" value="true" />
+      <created>1731169467673</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1731169467673</updated>
+    </task>
+    <task id="LOCAL-00018" summary="CRUD End points on Job Post">
+      <option name="closed" value="true" />
+      <created>1731202970405</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1731202970405</updated>
+    </task>
+    <task id="LOCAL-00019" summary="Implemented endpoints to get job posts, delete, and update">
+      <option name="closed" value="true" />
+      <created>1731203982513</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1731203982513</updated>
+    </task>
+    <task id="LOCAL-00020" summary="Implemented endpoints to get job posts, delete, and update">
+      <option name="closed" value="true" />
+      <created>1731207317674</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1731207317674</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
+    <servers />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Spring Security Login nad Logout" />
+    <MESSAGE value="Create Job Post" />
+    <MESSAGE value="Added 6 end points" />
+    <MESSAGE value="Added an endpoint to filter data" />
+    <MESSAGE value="Added Company Entity" />
+    <MESSAGE value="Added few end points for company" />
+    <MESSAGE value="Fixing duplicate issues" />
+    <MESSAGE value="re-building the project to microservices" />
+    <MESSAGE value="Spring Security" />
+    <MESSAGE value="get user by jwt token" />
+    <MESSAGE value="Create Job Post Service" />
+    <MESSAGE value="Config server and spring cloud" />
+    <MESSAGE value="CRUD End points on Job Post" />
+    <MESSAGE value="Implemented endpoints to get job posts, delete, and update" />
+    <option name="LAST_COMMIT_MESSAGE" value="Implemented endpoints to get job posts, delete, and update" />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/CareerConnect$DiscoveryServerApplication.ic" NAME="DiscoveryServerApplication Coverage Results" MODIFIED="1731033333489" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
+      <FILTER>com.absolute.code.weirdo.DiscoveryServer.*</FILTER>
+    </SUITE>
+  </component>
+</project>

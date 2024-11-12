@@ -16,7 +16,7 @@ spring:
           predicates:
             - Path=/auth/**
         - id: JOB-POST-SERVICE
-          uri: lb://JOB-POST-SERVICE  # Ensure this matches the Eureka registration name
+          uri: lb://JOB-POST-SERVICE
           predicates:
             - Path=/api/v1/job-post/**
 

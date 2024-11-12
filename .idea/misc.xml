@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ExternalStorageConfigurationManager" enabled="true" />
+  <component name="MavenProjectsManager">
+    <option name="originalFiles">
+      <list>
+        <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/user-servce/pom.xml" />
+        <option value="$PROJECT_DIR$/create-job-post-service/pom.xml" />
+        <option value="$PROJECT_DIR$/DiscoveryServer/pom.xml" />
+        <option value="$PROJECT_DIR$/GateWay/pom.xml" />
+        <option value="$PROJECT_DIR$/company-service/pom.xml" />
+        <option value="$PROJECT_DIR$/employer-analytics-service/pom.xml" />
+        <option value="$PROJECT_DIR$/job-alerts-service/pom.xml" />
+        <option value="$PROJECT_DIR$/job-application-service/pom.xml" />
+        <option value="$PROJECT_DIR$/resume-builder-service/pom.xml" />
+        <option value="$PROJECT_DIR$/search-functionality-service/pom.xml" />
+        <option value="$PROJECT_DIR$/social-media-integration-service/pom.xml" />
+        <option value="$PROJECT_DIR$/track-job-application-service/pom.xml" />
+        <option value="$PROJECT_DIR$/user-reviews-service/pom.xml" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_21" default="true" project-jdk-name="21" project-jdk-type="JavaSDK" />
+</project>
