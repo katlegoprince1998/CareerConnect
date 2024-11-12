@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding">
+    <file url="file://$PROJECT_DIR$/DiscoveryServer/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/GateWay/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/company-service/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/create-job-post-service/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/employer-analytics-service/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/job-alerts-service/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/job-application-service/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/resume-builder-service/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/search-functionality-service/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/social-media-integration-service/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/track-job-application-service/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/user-reviews-service/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/user-servce/src/main/java" charset="UTF-8" />
+  </component>
+</project>
