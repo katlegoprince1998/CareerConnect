@@ -1,0 +1,25 @@
+server:
+  port: 5003
+
+spring:
+  application:
+    name: COMPANY-SERVICE
+  datasource:
+    url: jdbc:postgresql://localhost:5432/career-connect-company-service
+    username: postgres
+    password: admin
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+
+eureka:
+  instance:
+    prefer-ip-address: true
+  client:
+    fetch-registry: true
+    register-with-eureka: true
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
