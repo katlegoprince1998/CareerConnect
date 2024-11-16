@@ -147,6 +147,20 @@ public class CompanyServiceImpl implements CompanyService{
         }
     }
 
+    @Override
+    public CompanyResponse findById(Long id) throws CompanyNotFoundException {
+       if (id == null)
+           throw new IllegalArgumentException("Company Id is required to retrieve a company");
+       try{
+          Company company = repository.findById(id).orElseThrow(() -> new CompanyNotFoundException("Company with ID "
+                  + id + " was not found"));
+
+          return returnCompany(company);
+       }catch (CompanyNotFoundException e){
+           throw new CompanyNotFoundException("Failed to retrieve a company with " + id + " id ");
+       }
+    }
+
 
     private static Company buildCompany(CompanyRequest request, Long userId){
         return Company

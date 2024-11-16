@@ -23,4 +23,5 @@ public class GetJobPostResponse {
     private String benefits;
     private LocalDate postCreatedAt;
     private Long userId;
+    private Long companyId;
 }

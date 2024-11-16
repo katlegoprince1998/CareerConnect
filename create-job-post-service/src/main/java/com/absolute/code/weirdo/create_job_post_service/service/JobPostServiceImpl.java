@@ -20,10 +20,11 @@ public class JobPostServiceImpl implements JobPostService {
     private final JobPostRepository repository;
 
     @Override
-    public CreateJobPostResponse createJobPost(JobPostRequest request, String userRole, Long userId) throws FailedToCreateJobPostException {
+    public CreateJobPostResponse createJobPost(JobPostRequest request, String userRole,
+                                               Long userId, Long companyId) throws FailedToCreateJobPostException {
         validateRequest(request, userRole);
 
-        JobPost jobPost = buildJobPost(request, userId);
+        JobPost jobPost = buildJobPost(request, userId, companyId);
 
         try {
             JobPost savedJobPost = repository.save(jobPost);
@@ -56,7 +57,8 @@ public class JobPostServiceImpl implements JobPostService {
                 .applicationDeadline(jobPost.getApplicationDeadline())
                 .benefits(jobPost.getBenefits())
                 .postCreatedAt(jobPost.getPostCreatedAt())
-                .userId(jobPost.getUserid()) // Assumes a method to convert user entity to UserDto
+                .userId(jobPost.getUserid())
+                .companyId(jobPost.getCompanyId())
                 .build();
     }
 
@@ -120,7 +122,7 @@ public class JobPostServiceImpl implements JobPostService {
     }
 
 
-    private JobPost buildJobPost(JobPostRequest request, Long userId) {
+    private JobPost buildJobPost(JobPostRequest request, Long userId, Long companyId) {
         return JobPost.builder()
                 .jobDescription(request.getJobDescription())
                 .postCreatedAt(LocalDate.now())
@@ -133,6 +135,7 @@ public class JobPostServiceImpl implements JobPostService {
                 .applicationProcess(request.getApplicationProcess())
                 .qualifications(request.getQualifications())
                 .userid(userId)
+                .companyId(companyId)
                 .build();
     }
 
@@ -142,6 +145,7 @@ public class JobPostServiceImpl implements JobPostService {
                 .jobTitle(savedJobPost.getJobTitle())
                 .jobId(savedJobPost.getId())
                 .userId(savedJobPost.getUserid())
+                .companyId(savedJobPost.getCompanyId())
                 .build();
     }
 }

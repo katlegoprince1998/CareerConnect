@@ -13,4 +13,5 @@ public interface CompanyService {
     List<CompanyResponse> findAllCompanies();
     CompanyResponse updateCompany(CompanyRequest request, Long id, String userRole) throws CompanyNotFoundException;
     String deleteCompany(Long id, String userRole) throws CompanyNotFoundException;
+    CompanyResponse findById(Long id) throws CompanyNotFoundException;
 }

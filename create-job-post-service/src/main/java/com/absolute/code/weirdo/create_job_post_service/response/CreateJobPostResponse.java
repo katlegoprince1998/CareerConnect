@@ -11,5 +11,6 @@ public class CreateJobPostResponse {
     private Long jobId;
     private Long userId;
     private String jobTitle;
+    private Long companyId;
     private String message;
 }

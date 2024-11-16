@@ -1,6 +1,7 @@
 package com.absolute.code.weirdo.company_service.controller;
 
 import com.absolute.code.weirdo.company_service.dto.UserDto;
+import com.absolute.code.weirdo.company_service.exceptions.CompanyNotFoundException;
 import com.absolute.code.weirdo.company_service.request.CompanyRequest;
 import com.absolute.code.weirdo.company_service.response.CompanyResponse;
 import com.absolute.code.weirdo.company_service.service.CompanyService;
@@ -104,6 +105,26 @@ public class CompanyController {
         String response = companyService.deleteCompany(id, user.role());
         logger.info(response);
         return ResponseEntity.ok(response);
+    }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<CompanyResponse> findCompanyById(@PathVariable Long id) {
+        logger.info("Searching for company with ID: {}", id);
+
+        try {
+            CompanyResponse response = companyService.findById(id);
+            logger.info("Found company: {}", response);
+            return ResponseEntity.ok(response);
+        } catch (CompanyNotFoundException e) {
+            logger.error("Company not found: {}", e.getMessage());
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(null);
+        } catch (IllegalArgumentException e) {
+            logger.error("Invalid request: {}", e.getMessage());
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(null);
+        } catch (Exception e) {
+            logger.error("Unexpected error: {}", e.getMessage());
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(null);
+        }
     }
 
     // Helper method to authenticate user via JWT

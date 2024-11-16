@@ -30,4 +30,5 @@ public class JobPost {
     private String benefits;
     private LocalDate postCreatedAt;
     private Long userid;
+    private Long companyId;
 }

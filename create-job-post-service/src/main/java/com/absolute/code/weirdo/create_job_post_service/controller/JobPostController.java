@@ -1,5 +1,6 @@
 package com.absolute.code.weirdo.create_job_post_service.controller;
 
+import com.absolute.code.weirdo.create_job_post_service.dto.CompanyDto;
 import com.absolute.code.weirdo.create_job_post_service.dto.UserDto;
 import com.absolute.code.weirdo.create_job_post_service.exceptions.FailedToCreateJobPostException;
 import com.absolute.code.weirdo.create_job_post_service.exceptions.FailedToGetJobPostException;
@@ -8,6 +9,7 @@ import com.absolute.code.weirdo.create_job_post_service.request.UpdateJobPostReq
 import com.absolute.code.weirdo.create_job_post_service.response.CreateJobPostResponse;
 import com.absolute.code.weirdo.create_job_post_service.response.GetJobPostResponse;
 import com.absolute.code.weirdo.create_job_post_service.service.JobPostService;
+import com.absolute.code.weirdo.create_job_post_service.service.company.CompanyService;
 import com.absolute.code.weirdo.create_job_post_service.service.user.UserService;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -20,10 +22,13 @@ import org.springframework.web.bind.annotation.*;
 public class JobPostController {
     private final JobPostService service;
     private final UserService userService;
+    private final CompanyService companyService;
 
-    @PostMapping
+    @PostMapping("/{companyId}")
     public ResponseEntity<Object> createJobPost(@RequestBody JobPostRequest request,
-                                                @RequestHeader(value = "Authorization", required = false) String jwt) {
+                                                @RequestHeader(value = "Authorization"
+                                                        , required = false) String jwt,
+                                                @PathVariable Long companyId) {
         try {
             validateJwt(jwt);
 
@@ -32,7 +37,12 @@ public class JobPostController {
                 return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("User not authorized");
             }
 
-            CreateJobPostResponse response = service.createJobPost(request, user.getRole(), user.getUserId());
+            CompanyDto company = companyService.getCompany(jwt, companyId);
+
+            if (company == null)
+                throw new FailedToCreateJobPostException("Company with Id " + companyId + " does not exist");
+
+            CreateJobPostResponse response = service.createJobPost(request, user.getRole(), user.getUserId(), companyId);
             return ResponseEntity.status(HttpStatus.CREATED).body(response);
 
         } catch (FailedToCreateJobPostException e) {
