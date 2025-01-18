@@ -12,9 +12,9 @@ spring:
           enabled: true
       routes:
         - id: USER-SERVICE
-          uri: lb://USER-SERVICE
+          uri: lb:http://USER-SERVICE
           predicates:
-            - Path=/auth/**
+            - Path=/auth/sign-in
         - id: JOB-POST-SERVICE
           uri: lb://JOB-POST-SERVICE
           predicates:

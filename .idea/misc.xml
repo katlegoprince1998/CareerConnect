@@ -18,6 +18,7 @@
         <option value="$PROJECT_DIR$/social-media-integration-service/pom.xml" />
         <option value="$PROJECT_DIR$/track-job-application-service/pom.xml" />
         <option value="$PROJECT_DIR$/user-reviews-service/pom.xml" />
+        <option value="$PROJECT_DIR$/config-server/pom.xml" />
       </list>
     </option>
   </component>

@@ -3,10 +3,10 @@ server:
 
 spring:
   application:
-    name: COMPANY-SERVICE
+    name: company-service
   datasource:
     url: jdbc:postgresql://localhost:5432/career-connect-company-service
-    username: postgres
+    username: admin
     password: admin
   jpa:
     hibernate:

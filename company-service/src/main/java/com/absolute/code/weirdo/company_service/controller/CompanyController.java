@@ -33,7 +33,7 @@ public class CompanyController {
             throws AuthenticationException {
         // Authenticate and authorize user
         UserDto user = authenticateUser(jwt);
-        authorizeUser(user, "ADMIN");
+        authorizeUser(user);
 
         logger.info("User [{}] with role [{}] attempting to create a company.", user.userId(), user.role());
 
@@ -84,7 +84,7 @@ public class CompanyController {
                                                          @RequestHeader(value = "Authorization", required = false) String jwt)
             throws AuthenticationException {
         UserDto user = authenticateUser(jwt);
-        authorizeUser(user, "ADMIN");
+        authorizeUser(user);
 
         logger.info("User [{}] with role [{}] updating company with ID: {}", user.userId(), user.role(), id);
 
@@ -98,7 +98,7 @@ public class CompanyController {
                                                 @RequestHeader(value = "Authorization", required = false) String jwt)
             throws AuthenticationException {
         UserDto user = authenticateUser(jwt);
-        authorizeUser(user, "ADMIN");
+        authorizeUser(user);
 
         logger.info("User [{}] with role [{}] deleting company with ID: {}", user.userId(), user.role(), id);
 
@@ -142,9 +142,9 @@ public class CompanyController {
     }
 
     // Helper method to authorize user based on role
-    private void authorizeUser(UserDto user, String requiredRole) throws AuthenticationException {
-        if (!requiredRole.equals(user.role())) {
-            throw new AuthenticationException("User does not have the required role: " + requiredRole);
+    private void authorizeUser(UserDto user) throws AuthenticationException {
+        if (!"ADMIN".equals(user.role())) {
+            throw new AuthenticationException("User does not have the required role: " + "ADMIN");
         }
     }
 }

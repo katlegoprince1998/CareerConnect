@@ -11,19 +11,21 @@
         <module name="user-reviews-service" />
         <module name="resume-builder-service" />
         <module name="company-service" />
+        <module name="demo" />
         <module name="search-functionality-service" />
         <module name="social-media-integration-service" />
+        <module name="config-server" />
         <module name="track-job-application-service" />
-        <module name="GateWay" />
         <module name="job-application-service" />
-        <module name="user-servce" />
         <module name="employer-analytics-service" />
+        <module name="user-servce" />
         <module name="job-alerts-service" />
         <module name="create-job-post-service" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="CareerConnect" target="17" />
+      <module name="GateWay" target="17" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
@@ -32,7 +34,9 @@
       <module name="DiscoveryServer" options="-parameters" />
       <module name="GateWay" options="-parameters" />
       <module name="company-service" options="-parameters" />
+      <module name="config-server" options="-parameters" />
       <module name="create-job-post-service" options="-parameters" />
+      <module name="demo" options="-parameters" />
       <module name="employer-analytics-service" options="-parameters" />
       <module name="job-alerts-service" options="-parameters" />
       <module name="job-application-service" options="-parameters" />

@@ -165,49 +165,49 @@ public class CompanyServiceImpl implements CompanyService{
     private static Company buildCompany(CompanyRequest request, Long userId){
         return Company
                 .builder()
-                .logo(request.getLogo())
-                .name(request.getName())
-                .description(request.getDescription())
-                .website(request.getWebsite())
-                .industry(request.getIndustry())
-                .location(new Location(request.getCountry(), request.getProvince(),  request.getCity(), request.getAddress()
-                        , request.getStreetName(), request.getPostalCode()))
-                .contactInfo(new ContactInfo(request.getEmail(), request.getPhone()))
+                .logo(request.logo())
+                .name(request.name())
+                .description(request.description())
+                .website(request.website())
+                .industry(request.industry())
+                .location(new Location(request.country(), request.province(),  request.city(), request.address()
+                        , request.streetName(), request.postalCode()))
+                .contactInfo(new ContactInfo(request.email(), request.phone()))
                 .userId(userId)
                 .build();
     }
 
     // Helper method to update fields if they are not null or empty
     private void updateCompanyFields(Company existingCompany, CompanyRequest request) {
-        if (isNotNullOrEmpty(request.getName())) {
-            existingCompany.setName(request.getName());
+        if (isNotNullOrEmpty(request.name())) {
+            existingCompany.setName(request.name());
         }
-        if (isNotNullOrEmpty(request.getLogo())) {
-            existingCompany.setLogo(request.getLogo());
+        if (isNotNullOrEmpty(request.logo())) {
+            existingCompany.setLogo(request.logo());
         }
-        if (isNotNullOrEmpty(request.getWebsite())) {
-            existingCompany.setWebsite(request.getWebsite());
+        if (isNotNullOrEmpty(request.website())) {
+            existingCompany.setWebsite(request.website());
         }
-        if (isNotNullOrEmpty(request.getIndustry())) {
-            existingCompany.setIndustry(request.getIndustry());
+        if (isNotNullOrEmpty(request.industry())) {
+            existingCompany.setIndustry(request.industry());
         }
-        if (isNotNullOrEmpty(request.getDescription())) {
-            existingCompany.setDescription(request.getDescription());
+        if (isNotNullOrEmpty(request.description())) {
+            existingCompany.setDescription(request.description());
         }
         if (isLocationValid(request)) {
             existingCompany.setLocation(new Location(
-                    request.getCountry(),
-                    request.getProvince(),
-                    request.getCity(),
-                    request.getAddress(),
-                    request.getStreetName(),
-                    request.getPostalCode()
+                    request.country(),
+                    request.province(),
+                    request.city(),
+                    request.address(),
+                    request.streetName(),
+                    request.postalCode()
             ));
         }
         if (isContactInfoValid(request)) {
             existingCompany.setContactInfo(new ContactInfo(
-                    request.getEmail(),
-                    request.getPhone()
+                    request.email(),
+                    request.phone()
             ));
         }
     }
@@ -219,17 +219,17 @@ public class CompanyServiceImpl implements CompanyService{
 
     // Validate location fields
     private boolean isLocationValid(CompanyRequest request) {
-        return isNotNullOrEmpty(request.getCountry())
-                || isNotNullOrEmpty(request.getProvince())
-                || isNotNullOrEmpty(request.getCity())
-                || isNotNullOrEmpty(request.getAddress())
-                || isNotNullOrEmpty(request.getStreetName())
-                || isNotNullOrEmpty(request.getPostalCode());
+        return isNotNullOrEmpty(request.country())
+                || isNotNullOrEmpty(request.province())
+                || isNotNullOrEmpty(request.city())
+                || isNotNullOrEmpty(request.address())
+                || isNotNullOrEmpty(request.streetName())
+                || isNotNullOrEmpty(request.postalCode());
     }
 
     // Validate contact info fields
     private boolean isContactInfoValid(CompanyRequest request) {
-        return isNotNullOrEmpty(request.getEmail()) || isNotNullOrEmpty(request.getPhone());
+        return isNotNullOrEmpty(request.email()) || isNotNullOrEmpty(request.phone());
     }
 
     private  CompanyResponse returnCompany(Company savedCompany){

@@ -5,7 +5,31 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9b0a4f99-6d81-436e-87c9-141d076d2790" name="Changes" comment="Create Job post is now linked to company">
+      <change afterPath="$PROJECT_DIR$/config-server/src/main/resources/configurations/discovery-service.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/job-application-service/src/main/java/com/absolute/code/weirdo/job_application_service/model/JopApplicationModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DiscoveryServer/src/main/resources/application.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/DiscoveryServer/src/main/resources/application.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GateWay/src/main/resources/application.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/GateWay/src/main/resources/application.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/career-app/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/career-app/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/career-app/.vscode/extensions.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/career-app/.vscode/launch.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/career-app/.vscode/tasks.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/career-app/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/career-app/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/career-app/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/career-app/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/career-app/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/career-app/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/career-app/src/app/app.routes.ts" beforeDir="false" afterPath="$PROJECT_DIR$/career-app/src/app/app.routes.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/career-app/tsconfig.app.json" beforeDir="false" afterPath="$PROJECT_DIR$/career-app/tsconfig.app.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/career-app/tsconfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/career-app/tsconfig.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/company-service/src/main/java/com/absolute/code/weirdo/company_service/controller/CompanyController.java" beforeDir="false" afterPath="$PROJECT_DIR$/company-service/src/main/java/com/absolute/code/weirdo/company_service/controller/CompanyController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/company-service/src/main/java/com/absolute/code/weirdo/company_service/request/CompanyRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/company-service/src/main/java/com/absolute/code/weirdo/company_service/request/CompanyRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/company-service/src/main/java/com/absolute/code/weirdo/company_service/response/CompanyResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/company-service/src/main/java/com/absolute/code/weirdo/company_service/response/CompanyResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/company-service/src/main/java/com/absolute/code/weirdo/company_service/service/CompanyServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/company-service/src/main/java/com/absolute/code/weirdo/company_service/service/CompanyServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/company-service/src/main/resources/application.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/company-service/src/main/resources/application.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/create-job-post-service/src/main/java/com/absolute/code/weirdo/create_job_post_service/dto/CompanyDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/create-job-post-service/src/main/java/com/absolute/code/weirdo/create_job_post_service/dto/CompanyDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/create-job-post-service/src/main/java/com/absolute/code/weirdo/create_job_post_service/service/JobPostServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/create-job-post-service/src/main/java/com/absolute/code/weirdo/create_job_post_service/service/JobPostServiceImpl.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -17,9 +41,9 @@
       <list>
         <option value="Enum" />
         <option value="Exception" />
-        <option value="Class" />
         <option value="Record" />
         <option value="Interface" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -68,29 +92,30 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Application.CareerConnectApplication.executor": "Run",
-    "Application.CompanyServiceApplication.executor": "Run",
-    "Application.CreateJobPostServiceApplication.executor": "Run",
-    "Application.DiscoveryServerApplication.executor": "Run",
-    "Application.GateWayApplication.executor": "Run",
-    "Application.UserServceApplication.executor": "Run",
-    "Maven.create-job-post-service [clean,test].executor": "Run",
-    "Maven.create-job-post-service [clean].executor": "Run",
-    "Maven.user-servce [clean,install].executor": "Run",
-    "Maven.user-servce [clean].executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SONARLINT_PRECOMMIT_ANALYSIS": "true",
-    "git-widget-placeholder": "Master",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/princ/OneDrive/Desktop/Projects/CareerConnect/user-reviews-service/pom.xml",
-    "project.structure.last.edited": "Project",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.0",
-    "settings.editor.selected.configurable": "MavenSettings"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.CareerConnectApplication.executor&quot;: &quot;Run&quot;,
+    &quot;Application.CompanyServiceApplication.executor&quot;: &quot;Run&quot;,
+    &quot;Application.CreateJobPostServiceApplication.executor&quot;: &quot;Run&quot;,
+    &quot;Application.DiscoveryServerApplication.executor&quot;: &quot;Run&quot;,
+    &quot;Application.GateWayApplication.executor&quot;: &quot;Run&quot;,
+    &quot;Application.UserReviewsServiceApplication.executor&quot;: &quot;Run&quot;,
+    &quot;Application.UserServceApplication.executor&quot;: &quot;Run&quot;,
+    &quot;Maven.create-job-post-service [clean,test].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.create-job-post-service [clean].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.user-servce [clean,install].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.user-servce [clean].executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SONARLINT_PRECOMMIT_ANALYSIS&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;Master&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/princ/OneDrive/Desktop/Projects/CareerConnect&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;MavenSettings&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
       <recent name="com.absolute.code.weirdo.company_service.exceptions" />

@@ -33,7 +33,7 @@ public class JobPostServiceImpl implements JobPostService {
             throw new FailedToCreateJobPostException("Failed to create job post: " + e.getMessage());
         }
     }
-
+    
     @Override
     public GetJobPostResponse getJobPost(Long id) throws FailedToGetJobPostException {
         JobPost jobPost = repository.findById(id)
